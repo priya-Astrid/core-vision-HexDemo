@@ -1,0 +1,1 @@
+// here constants/index.js is used to export all constants from the config folder, so that we can import them from a single file.

@@ -1,0 +1,4 @@
+const sampleHex = `8B 00 34 08 20 01 23 45 52 01 00 00 13 0C 03 11 00 33 01 F2 D5 9F  86 FD D0 08 02 E0 9C 21 AA BB CC DD EE FF 0C 00 12 00 
+34 D9 D4 2C 11 22 33 44 55 66 20 00 45 00 65`;
+
+module.exports = sampleHex;
