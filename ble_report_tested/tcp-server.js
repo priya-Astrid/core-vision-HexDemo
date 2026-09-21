@@ -1,5 +1,4 @@
 const net = require("net");
-const { connectRabbitMQ, getChannel } = require("../config/rabbitmq");
 const publishPacket = require("./queue/publisher");
 
 const HOST = "127.0.0.1";
@@ -12,6 +11,21 @@ function detectionFormat(buffer){
   if(buffer[0] === 0x8b){
     return "ZIP_BSA"
   }
+
+if (buffer[0] === 0x8d) {
+    return "ZIP_BSA";
+}
+  const prefix = buffer.subarray(0, 3).toString("ascii");
+
+  if (prefix === "BLE") {
+    return "ASCII_BLE";
+  }
+
+  if (prefix === "BSA") {
+    return "ASCII_BSA";
+  }
+
+  return "UNKNOWN"
 }
 const data = async () => {
    const server = net.createServer((socket) => {
